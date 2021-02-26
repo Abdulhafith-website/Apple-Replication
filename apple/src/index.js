@@ -7,11 +7,13 @@ import Header from "./Component/Header/Header";
 
 import reportWebVitals from './reportWebVitals';
 import Footer from './Component/Footer/Footer';
+import MainPage from './Component/Main/MainPage';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Header/>,
+    <MainPage/>
     <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
