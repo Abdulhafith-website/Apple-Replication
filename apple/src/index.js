@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import Footer from './Component/Footer/Footer';
 import MainPage from './Component/Main/MainPage';
 
+import banker from "./images/home/banker.png";
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,4 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react';
+
+import image1 from '../../images/home/banker.jpg';
+
+
 
 function MainPage() {
     return (
