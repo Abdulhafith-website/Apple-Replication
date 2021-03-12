@@ -3,20 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-import Header from "./Component/Header/Header";
 
 import reportWebVitals from './reportWebVitals';
-import Footer from './Component/Footer/Footer';
-import MainPage from './Component/Main/MainPage';
 
-import banker from "./images/home/banker.png";
+import App from './App';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header/>,
-    <MainPage/>
-    <Footer/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

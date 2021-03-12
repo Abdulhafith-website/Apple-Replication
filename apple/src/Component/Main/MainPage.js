@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
+import banker from "../../images/home/banker.png";
+import arcade from "../../images/icons/arcade.png";
+import watch from "../../images/icons/watch-series5-logo.png";
+import appletv from "../../images/icons/apple-tv-logo.png"
 
+import Youtube from "../Youtube/youtube";
 
 
 function MainPage() {
@@ -141,12 +146,12 @@ function MainPage() {
 					<div className="left-side-container">
 						<div className="top-logo-wrapper">
 							<div className="logo-wrapper">
-								<img src="images/icons/apple-tv-logo.png"/>
+								<img src={appletv}/>
 							</div>
 						</div>
 
 						<div className="tvshow-logo-wraper">
-							<img src="images/home/banker.png"/>
+							<img src={banker}/>
 						</div>
 
 						<div className="watch-more-wrapper">
@@ -158,7 +163,7 @@ function MainPage() {
 					<div className="right-side-container">
 						<div className="top-logo-wrapper">
 							<div className="logo-wrapper">
-								<img src="images/icons/watch-series5-logo.png"/>
+								<img src={watch}/>
 							</div>
 						</div>
 						<div className="description-wraper">
@@ -184,7 +189,7 @@ function MainPage() {
 					<div className="left-side-container">
 						<div className="top-logo-wrapper">
 							<div className="logo-wrapper">
-								<img src="images/icons/arcade.png"/>
+								<img src={arcade}/>
 							</div>
 						</div>
 						<div className="description-wraper white">
@@ -216,6 +221,10 @@ function MainPage() {
 				</div>					
 			</div>
 		</div> 
+	</section>
+
+	<section> 
+        <Youtube/>
 	</section>
 
 	
