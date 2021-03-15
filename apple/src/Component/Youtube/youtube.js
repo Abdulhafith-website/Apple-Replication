@@ -1,27 +1,25 @@
-import React,{UseEffect, UseState } from "react";
+import React,{useState, useEffect } from "react";
 
 import "../Youtube/YoutubeCss.css";
 
-function youtube() {
+function Youtube() {
 
-    const [YoutubeVideos,addVideos]= UseState([]);
+    const [youtubeVideos,addVideos]= useState([]);
     
-    UseEffect(()=>{
+    useEffect(()=>{
       fetch(
           "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDhpYAExO_5YJR1hpxy1nAUneVxKTw-dTY&channelId=UCE_M8A5yxnLfW0KghEeajjw&part=snippet,id&order=date&maxResults=6"
       )
 
-      .then(
-          (response)=> response.json()
-          )
+      .then((response) => response.json())
       .then((data)=>{
              const Abdu = data.items;
              addVideos(Abdu); 
           });
 
-    },[YoutubeVideos]);
+    },[youtubeVideos]);
     
-    console.log(YoutubeVideos);
+    console.log(youtubeVideos);
 
     return (
         <div className="allVideosWrapper">
@@ -33,27 +31,41 @@ function youtube() {
                 <br></br>
               </div>
             </div>
-              <div className="col-sm-12 col-md-6 col-lg-4">
-                <div className="singleVideoWrapper">
-                    <div className="videoThumbnail">
-                        <a target="_blank">
-                            <img/>
-                        </a>
-                    </div>
-                    <div className="videoInfoWrapper">
-                        <div className="videoTitle">
-                            <a target="_blank">Abebe</a>
-                        </div>
-                        <div className="videoDesc">Some Description</div>
 
-                    </div>
+             {youtubeVideos.map((singleVideo)=>{
+               let vidId = singleVideo.id.videoId;
+               let vidLink =`https://www.youtube.com/watch?v=${vidId}`;
 
-                </div>
+               let videoWrapper = (
+               <div key={vidId} className="col-sm-12 col-md-6 col-lg-4">
+                 <div className="singleVideoWrapper">
+                   <div className="videoThumbnail">
+                     <a href={vidLink} target="_blank">
+                       <img src={singleVideo.snippet.thumbnail.high.url}/>
+                     </a>
+                   </div>
+                   <div className="videoInfoWrapper">
+                     <div className="videoTitle">
+                       <a href={vidLink} target="_blank">
+                         {singleVideo.snippet.title}
+                       </a>
+                     </div>
+                     <div className="videoDesc">
+                       {singleVideo.snippet.description}
 
-              </div>               
+                     </div>
+
+                   </div>
+                 </div>
+                   
+               </div>
+               );
+
+               return videoWrapper;
+             })}              
           </div>
         </div>
       </div>
     );
   }
-export default youtube
+export default Youtube
